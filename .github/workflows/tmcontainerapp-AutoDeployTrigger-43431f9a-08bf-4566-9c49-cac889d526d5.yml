@@ -34,12 +34,12 @@ jobs:
         uses: azure/container-apps-deploy-action@v2
         with:
           appSourcePath: ${{ github.workspace }} 
-          registryUrl: 
+          registryUrl: tmregtest.azurecr.io
           registryUsername: ${{ secrets.TMCONTAINERAPP_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.TMCONTAINERAPP_REGISTRY_PASSWORD }}
           containerAppName: tmcontainerapp
           resourceGroup: tmauldin-test
-          imageToBuild: default/[parameters('containerAppName')]:${{ github.sha }}
+          imageToBuild: tmregtest.azurecr.io/tmcontainerapp:${{ github.sha }}
           
 
 
